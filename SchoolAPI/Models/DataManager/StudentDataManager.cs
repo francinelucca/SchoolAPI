@@ -41,7 +41,7 @@ namespace SchoolAPI.Models.DataManager
 
 		public void Delete(Student entity)
 		{
-			_schoolContext.ClassEnrollment.RemoveRange(entity.ClassEnrollment.Where(c => c.StudentId == entity.Id));
+			_schoolContext.ClassEnrollment.RemoveRange(_schoolContext.ClassEnrollment.Where(c => c.StudentId == entity.Id));
 			_schoolContext.Student.Remove(entity);
 			_schoolContext.SaveChanges();
 		}
